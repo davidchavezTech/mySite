@@ -1,0 +1,142 @@
+@mixin page-default($bg-img) {
+    display: block;
+    height:100vh;
+    width: 1920px;
+    background-image: url($bg-img);
+    background-size: cover;
+    background-color: var(--page-bg-color);
+    position: relative;
+    margin-right:auto;
+    margin-left:auto;
+    scroll-snap-align: start;
+    // scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Century Gothic Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Century Gothic Regular'), url('../font/GOTHIC.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Century Gothic Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Century Gothic Bold'), url('../font/GOTHICB.woff') format('woff');
+}
+
+:root {
+    --body-bg-color: #1b1b1d;
+    --page-bg-color: #fdb016;
+    --granate: #c42c07;
+}
+body {
+    font-family: 'Century Gothic Regular';
+    background-color: var(--body-bg-color);
+    margin:0;
+}
+.pages-wrapper{
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+//pages
+
+page-1{
+    @include page-default("../img/page-1-bg.svg");
+    z-index: 2;
+    box-shadow: 0px 35px 108px -40px rgba(255,85,4,0.67);
+}
+
+page-2{
+    @include page-default("../img/page-1-bg.svg");
+}
+
+// Nav bar
+
+.nav-bar{
+    height: 0;
+    color:white;
+    font-size:20px;
+    margin-left: 30%;
+    transform: translateY(30px);
+    position: sticky;
+    top:0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dynamic-navigation-wrapper{
+    display: flex;
+    margin-right: 30px;
+    align-items: center;
+    position: relative;
+}
+.dynamic-navigation-guide{
+    border-top: 1px solid white;
+    width: 400px;
+}.dynamic-navigation-bar{
+    position: absolute;
+    left: 0;
+    background-color: white;
+    width: 25%;
+    height: 5px;
+}
+.nav-item{
+    $padding: 20px;
+    padding-left: $padding;
+    padding-right: $padding;
+}
+
+
+// social media bar
+
+.social-media-wrapper{
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+}
+.social-media-line {
+    border-left: 1px solid white;
+    height: 30vh;
+}
+
+.social-media-icon{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 35px;
+}
+
+// page 1 content
+
+.logo-page-1{
+    width: 400px;
+    margin-left: 10%;
+    transform: translateY(260px);
+}
+.svg-text-portfolio{
+    position: absolute;
+    width: 1080px;
+    right: 50px;
+    top: 350px;
+}
+
+.my-name-title{
+    color: var(--granate);
+    display: inline-block;
+    position: absolute;
+    top: 645px;
+    right: 85px;
+}
+.first-name-title{
+    font-size: 165px;
+}
+.last-name-title{
+    font-size: 130px;
+    line-height: 28px;
+}
