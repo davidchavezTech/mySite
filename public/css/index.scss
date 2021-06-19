@@ -1,8 +1,7 @@
-@mixin page-default($bg-img) {
+@mixin page-default() {
     display: block;
     height:100vh;
     width: 1920px;
-    background-image: url($bg-img);
     background-size: cover;
     background-color: var(--page-bg-color);
     position: relative;
@@ -44,13 +43,24 @@ body {
 //pages
 
 page-1{
-    @include page-default("../img/page-1-bg.svg");
+    background-image: url("../img/page-1-bg.svg");
+    @include page-default();
     z-index: 2;
+    background-color: #fe970e;
     box-shadow: 0px 35px 108px -40px rgba(255,85,4,0.67);
 }
 
 page-2{
-    @include page-default("../img/page-1-bg.svg");
+    @include page-default();
+    background-color: #fe970e;
+}
+
+page-3{
+    background-image: url("../img/about_me.jpg");
+    @include page-default();
+    background-color: #fe970e;
+    z-index: 2;
+    box-shadow: 0px 35px 108px -40px rgba(255,85,4,0.67);
 }
 
 // Nav bar
@@ -139,4 +149,157 @@ page-2{
 .last-name-title{
     font-size: 130px;
     line-height: 28px;
+}
+
+//page 2 content
+
+#my-work{
+    color: var(--granate);
+    position: absolute;
+    top: 3vh;
+    left: 10vw;
+    font-size: 40px;
+}
+#portfolio-cont{
+    display: inline-block;
+    position: absolute;
+    top: 14vh;
+    left: 10vw;
+    #port-imgs-wrapper{
+        position: relative;
+        width: 1503px;
+        height: 835px;
+    }
+    #port-img-1{
+        box-shadow: 6px 7px 9px 0px rgba(247,96,9, 1);
+        height: 431px;
+        width: 655px;
+        background-image: url('../img/img-1.jpg');
+        display: inline-block;
+        margin-right: 25px;
+        margin-bottom: 25px;
+    }
+    #port-img-2{
+        box-shadow: 6px 7px 9px 0px rgba(247,96,9, 1);
+        height: 431px;
+        width: 210px;
+        background-image: url('../img/img-2.jpg');
+        display: inline-block;
+        margin-bottom: 25px;
+    }
+    #port-img-3{
+        box-shadow: 6px 7px 9px 0px rgba(247,96,9, 1);
+        position: absolute;
+        right: 0;
+        height: 323px;
+        width: 581px;
+        background-image: url('../img/img-3.jpg');
+        display: inline-block;
+    }
+    #port-img-4{
+        box-shadow: 6px 7px 9px 0px rgba(247,96,9, 1);
+        height: 379px;
+        width: 185px;
+        background-image: url('../img/img-4.jpg');
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    #port-img-5{
+        box-shadow: 6px 7px 9px 0px rgba(247,96,9, 1);
+        height: 379px;
+        width: 675px;
+        background-image: url('../img/img-5.jpg');
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 220px;
+    }
+    #port-img-6{
+        box-shadow: 6px 7px 9px 0px rgba(247,96,9, 1);
+        height: 485px;
+        width: 256px;
+        background-image: url('../img/img-6.jpg');
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        left: 920px;
+
+    }
+    #port-img-7{
+        box-shadow: 6px 7px 9px 0px rgba(247,96,9, 1);
+        height: 485px;
+        width: 292px;
+        background-image: url('../img/img-7.jpg');
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+//page 3 content
+
+#me-text{
+    width: 317px;
+    position: absolute;
+    bottom: 176px;
+    right: 685px;
+}
+
+#bio-wrapper{
+    position: absolute;
+    top: 184px;
+    right: 53px;
+}
+#art-wrapper{
+    position: absolute;
+    top: 325px;
+    right: 53px;
+}
+#contact-wrapper{
+    position: absolute;
+    top: 466px;
+    right: 53px;
+}
+.white-about-me-container{
+    box-shadow: 15px 12px 29px -4px rgba(247,75,9, 1);
+    background-color: #f7f7f7;
+    border-radius: 7px;
+    height: 82px;
+    width: 711px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .granate{
+        background-color: var(--granate);
+    }
+}
+
+.granate-about-me-container{
+    box-shadow: 15px 12px 29px -4px rgba(247,75,9, 1);
+    background-color: var(--granate);
+    border-radius: 7px;
+    height: 82px;
+    width: 711px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.about-svg-text{
+    height: 30px;
+    margin-left: 23px;
+}.arrow-container{
+    border-radius: 50px;
+    background-color: #fda713;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    margin-right: 13px;
+    box-shadow: inset 0px 0px 6px 3px rgba(255,112,11, 1);
+}.arrow-svg{
+    width:18px;
 }
