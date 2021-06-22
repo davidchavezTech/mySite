@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing for MyDataIO</title>
+    <title>David Chavez - Tech</title>
     <link rel="icon" href="./favico.ico"  type="image/icon type">
     <link rel="stylesheet" type="text/css" href="public/css/index.css" media="screen"/>
 </head>
@@ -12,45 +12,95 @@
     <!-- nav bar -->
 
     <div class="nav-bar">
+
+        <!-- dynamic bar -->
+
         <div class="dynamic-navigation-wrapper">
             <div class="dynamic-navigation-guide"></div>
-            <div class="dynamic-navigation-bar"></div>
+
+            <a href="#page-one" class="bar-wrapper">
+                <div class="dynamic-navigation-bar active"></div>
+            </a>
+
+            <a href="#page-two" class="bar-wrapper">
+                <div class="dynamic-navigation-bar"></div>
+            </a>
+
+            <a href="#page-three" class="bar-wrapper">
+                <div class="dynamic-navigation-bar"></div>
+            </a>
+
+            <a href="#page-three" class="bar-wrapper">
+                <div class="dynamic-navigation-bar"></div>
+            </a>
+
         </div>
-        <span class="nav-item">Welcome</span>
-        <span class="nav-item">My work</span>
-        <span class="nav-item">About me</span>
-        <span class="nav-item">Contact</span>
+
+
+        <!-- buttons -->
+        <a href="#page-one">
+            <span class="nav-item current-page"><span class="top-bottom-borders">Welcome</span></span>
+        </a>
+        <a href="#page-two">
+            <span class="nav-item"><span class="top-bottom-borders">My work</span></span>
+        </a>
+        <a href="#page-three">
+            <span class="nav-item"><span class="top-bottom-borders">About me</span></span>
+        </a>
+        <a href="#page-three">
+            <span class="nav-item"><span class="top-bottom-borders">Contact</span></span>
+        </a>
     </div>
     <div class="pages-wrapper">
 
-        <page-1>
+        <page-1 id="page-one">
 
             <!-- social media left bar -->
 
                 <div class="social-media-wrapper">
                     <div class="social-media-line" style="margin-bottom:10px;"></div>
-                    <img src="public/img/icon-linked-in.svg" class="social-media-icon">
-                    <img src="public/img/icon-behance.svg" class="social-media-icon">
-                    <img src="public/img/icon-git.svg" class="social-media-icon">
+
+                    <div class="icon-wrapper">
+                        <img src="public/img/icon-linked-in.svg" class="social-media-icon">
+                    </div>
+
+                    <div class="icon-wrapper">
+                        <img src="public/img/icon-behance.svg" class="social-media-icon">
+                    </div>
+
+                    <div class="icon-wrapper">
+                        <img src="public/img/icon-git.svg" class="social-media-icon">
+                    </div>
+
                     <div class="social-media-line" style="margin-top:10px;"></div>
                 </div>
 
             <!-- page 1 content -->
 
-            <img src="public/img/logo.svg" class="logo-page-1">
+            <img src="public/img/logo-transparent.png" class="logo-page-1">
             <img src="public/img/text-portfolio.svg" class="svg-text-portfolio">
             <span class="my-name-title"><span class="first-name-title">DAVID</span><br><span class="last-name-title">CHAVEZ</span></span>
         </page-1>
 
-        <page-2>
+        <page-2 id="page-two">
 
             <!-- social media left bar -->
 
                 <div class="social-media-wrapper">
                     <div class="social-media-line" style="margin-bottom:10px;"></div>
-                    <img src="public/img/icon-linked-in.svg" class="social-media-icon">
-                    <img src="public/img/icon-behance.svg" class="social-media-icon">
-                    <img src="public/img/icon-git.svg" class="social-media-icon">
+
+                    <div class="icon-wrapper">
+                        <img src="public/img/icon-linked-in.svg" class="social-media-icon">
+                    </div>
+
+                    <div class="icon-wrapper">
+                        <img src="public/img/icon-behance.svg" class="social-media-icon">
+                    </div>
+
+                    <div class="icon-wrapper">
+                        <img src="public/img/icon-git.svg" class="social-media-icon">
+                    </div>
+                    
                     <div class="social-media-line" style="margin-top:10px;"></div>
                 </div>
 
@@ -59,26 +109,75 @@
             <p id="my-work">My work</p>
             <div id="portfolio-cont">
                 <div id="port-imgs-wrapper">
-                    <div id="port-img-1"></div>
-                    <div id="port-img-2"></div>
-                    <div id="port-img-3"></div>
-                    <div id="port-img-4"></div>
-                    <div id="port-img-5"></div>
-                    <div id="port-img-6"></div>
-                    <div id="port-img-7"></div>
+                    <div id="img-1-wrapper">
+                        <div id="port-img-1"></div>
+                        <div class="h-v2-wrapper">
+                            <a class="horizontal-v-s" href="#">Visit site</a>
+                            <div class="horizontal-v">View</div>
+                        </div>
+                    </div>
+                    <div id="img-2-wrapper">
+                        <div id="port-img-2"></div>
+                        <div class="v-v2-wrapper">
+                            <a class="vertical-v-s" href="#">Visit site</a>
+                            <div class="vertical-v">View</div>
+                        </div>
+                    </div>
+                    <div id="img-3-wrapper">
+                        <div id="port-img-3"></div>
+                        <div class="h-v-wrapper">
+                            <div class="horizontal-v">View</div>
+                        </div>
+                    </div>
+                    <div id="img-4-wrapper">
+                        <div id="port-img-4"></div>
+                        <div class="v-v-wrapper">
+                            <div class="vertical-v" style="width:180px;">View</div>
+                        </div>
+                    </div>
+                    <div id="img-5-wrapper">
+                        <div id="port-img-5"></div>
+                        <div class="h-v2-wrapper">
+                            <a class="horizontal-v-s" href="#">Visit site</a>
+                            <div class="horizontal-v">View</div>
+                        </div>
+                    </div>
+                    <div id="img-6-wrapper">
+                        <div id="port-img-6"></div>
+                        <div class="v-v-wrapper" style="top:35%;width: 100%;">
+                            <div class="vertical-v" style="width:180px;">View</div>
+                        </div>
+                    </div>
+                    <div id="img-7-wrapper">
+                        <div id="port-img-7"></div>
+                        <div class="v-v-wrapper" style="top:35%;width: 100%;">
+                            <div class="vertical-v" style="width:180px;">View</div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </page-2>
 
-        <page-3>
+        <page-3 id="page-three">
 
             <!-- social media left bar -->
 
             <div class="social-media-wrapper">
                 <div class="social-media-line" style="margin-bottom:10px;"></div>
-                <img src="public/img/icon-linked-in.svg" class="social-media-icon">
-                <img src="public/img/icon-behance.svg" class="social-media-icon">
-                <img src="public/img/icon-git.svg" class="social-media-icon">
+
+                <div class="icon-wrapper">
+                    <img src="public/img/icon-linked-in.svg" class="social-media-icon">
+                </div>
+
+                <div class="icon-wrapper">
+                    <img src="public/img/icon-behance.svg" class="social-media-icon">
+                </div>
+
+                <div class="icon-wrapper">
+                    <img src="public/img/icon-git.svg" class="social-media-icon">
+                </div>
+                
                 <div class="social-media-line" style="margin-top:10px;"></div>
             </div>
 
@@ -91,6 +190,7 @@
                     <img src="public/img/bio-text.svg" class="about-svg-text">
                     <div class="arrow-container">
                         <img src="public/img/down_arrow.svg" class="arrow-svg">
+                        <img src="public/img/x.svg" class="x-svg">
                     </div>
                 </div>
             </div>
@@ -100,6 +200,7 @@
                     <img src="public/img/art-text.svg" class="about-svg-text">
                     <div class="arrow-container">
                         <img src="public/img/down_arrow.svg" class="arrow-svg">
+                        <img src="public/img/x.svg" class="x-svg">
                     </div>
                 </div>
             </div>
@@ -109,12 +210,15 @@
                     <img src="public/img/contact-text.svg" class="about-svg-text">
                     <div class="arrow-container">
                         <img src="public/img/down_arrow.svg" class="arrow-svg">
+                        <img src="public/img/x.svg" class="x-svg">
                     </div>
                 </div>
             </div>
 
         </page-3>
     </div>    
+    <script src="public/js/animations/x_animation.js"></script>
+    <script src="public/js/animations/dropButtons_animation.js"></script>
     <script src="public/js/index.js"></script>
 </body>
 </html>
