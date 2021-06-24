@@ -151,7 +151,12 @@ function portfolioImgHoverEffect(wrapper){
 //--------------------- x animation ---------------------------
 
 const bioWrapper = document.querySelector("#bio-wrapper");
+    const aboutMeCards = document.querySelectorAll('.about-me-card');
 const artWrapper = document.querySelector("#art-wrapper");
+const column1 = document.querySelector(".art-column-1");
+const column2 = document.querySelector(".art-column-2");
+const column3 = document.querySelector(".art-column-3");
+const previewsWrapper = document.querySelector("#art-previews-wrapper");
 const contactWrapper = document.querySelector("#contact-wrapper");
 
 const aboutButtonsArray = [
@@ -159,5 +164,55 @@ const aboutButtonsArray = [
     artWrapper,
     contactWrapper
 ]
+//---------------------animation functions-------------------
 _loadXanimation(aboutButtonsArray)
 _loadDropButtons_animation(aboutButtonsArray)
+_load_show_translateAndOpacity(bioWrapper, aboutMeCards, 200, 800)
+_loadToggleClassStagger(previewsWrapper, artWrapper, [column1, column2, column3], 100, 800)
+
+//------------------calculate age----------------------------------
+
+const ageContainers = document.querySelectorAll('#age');
+
+ageContainers.forEach(ageContainer=>{
+    ageContainer.textContent = calculate_age(12, 2, 1991);
+})
+function calculate_age(birth_month,birth_day,birth_year)
+{
+    today_date = new Date();
+    today_year = today_date.getFullYear();
+    today_month = today_date.getMonth();
+    today_day = today_date.getDate();
+    age = today_year - birth_year;
+
+    if ( today_month < (birth_month - 1))
+    {
+        age--;
+    }
+    if (((birth_month - 1) == today_month) && (today_day < birth_day))
+    {
+        age--;
+    }
+    return age;
+}
+
+let preview1 = document.getElementById('preview-1');
+
+preview1.addEventListener('click', ()=>{
+    alert('yeeh')
+})
+
+//-----------------loader animation------------------------
+
+const loaderWrapper = document.querySelector('#loader-wrapper');
+const loaderBar = document.querySelector('#loader-bar');
+
+setTimeout(()=>{
+    loaderWrapper.style.right = '1920px';
+    loaderBar.style.width = '200px';
+}, 1000)
+setTimeout(()=>{
+    loaderBar.style.transition = 'all .9s ease-in-out';
+    loaderBar.style.float = 'left';
+    loaderBar.style.width = '0%';
+}, 2000)

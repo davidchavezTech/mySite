@@ -3,7 +3,6 @@ let originalTopPositions = []
 function _loadDropButtons_animation(array){
     dropButtons_importedArray = array;
     for(let i=0;dropButtons_importedArray.length>i;i++){
-        console.log(dropButtons_importedArray[i].offsetTop)
         originalTopPositions.push(dropButtons_importedArray[i].offsetTop);
     }
     array.forEach(element =>{
