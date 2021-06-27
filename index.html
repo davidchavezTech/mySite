@@ -9,6 +9,12 @@
     <link rel="stylesheet" type="text/css" href="public/css/index.css" media="screen"/>
 </head>
 <body>
+    <div id="blocker">
+        <div id="loading-screen-wrapper">
+            <img id="initial-ball" class="drop-ball" src="public/img/logo.svg"></div>
+        </div>
+    </div>
+
     <!-- nav bar -->
 
     <div class="nav-bar">
@@ -26,11 +32,11 @@
                 <div class="dynamic-navigation-bar"></div>
             </a>
 
-            <a href="#page-three" class="bar-wrapper">
+            <a href="#page-three" class="bar-wrapper" id="about-me-bar">
                 <div class="dynamic-navigation-bar"></div>
             </a>
 
-            <a href="#page-three" class="bar-wrapper">
+            <a href="#page-three" class="bar-wrapper" id="contact-me-bar">
                 <div class="dynamic-navigation-bar"></div>
             </a>
 
@@ -44,14 +50,15 @@
         <a href="#page-two">
             <span class="nav-item"><span class="top-bottom-borders">My work</span></span>
         </a>
-        <a href="#page-three">
+        <a href="#page-three" id="about-me-button">
             <span class="nav-item"><span class="top-bottom-borders">About me</span></span>
         </a>
-        <a href="#page-three">
+        <a href="#page-three" id="contact-button">
             <span class="nav-item"><span class="top-bottom-borders">Contact</span></span>
         </a>
     </div>
     <div class="pages-wrapper">
+    <!-- <div class="pages-wrapper"> -->
 
         <page-1 id="page-one">
 
@@ -60,9 +67,9 @@
                 <div class="social-media-wrapper">
                     <div class="social-media-line" style="margin-bottom:10px;"></div>
 
-                    <div class="icon-wrapper">
+                    <a href="https://www.linkedin.com/in/davidchaveztech" class="icon-wrapper" target="_blank">
                         <img src="public/img/icon-linked-in.svg" class="social-media-icon">
-                    </div>
+                    </a>
 
                     <div class="icon-wrapper">
                         <img src="public/img/icon-behance.svg" class="social-media-icon">
@@ -89,9 +96,9 @@
                 <div class="social-media-wrapper">
                     <div class="social-media-line" style="margin-bottom:10px;"></div>
 
-                    <div class="icon-wrapper">
+                    <a href="https://www.linkedin.com/in/davidchaveztech" class="icon-wrapper" target="_blank">
                         <img src="public/img/icon-linked-in.svg" class="social-media-icon">
-                    </div>
+                    </a>
 
                     <div class="icon-wrapper">
                         <img src="public/img/icon-behance.svg" class="social-media-icon">
@@ -111,47 +118,53 @@
                 <div id="port-imgs-wrapper">
                     <div id="img-1-wrapper">
                         <div id="port-img-1"></div>
-                        <div class="h-v2-wrapper">
+                        <div class="portfolio-buttons-wrapper">
                             <a class="horizontal-v-s" href="#">Visit site</a>
-                            <div class="horizontal-v">View</div>
+                            <div class="horizontal-v">Behance</div>
+                            <div class="horizontal-v">GitHub</div>
                         </div>
                     </div>
                     <div id="img-2-wrapper">
                         <div id="port-img-2"></div>
-                        <div class="v-v2-wrapper">
-                            <a class="vertical-v-s" href="#">Visit site</a>
-                            <div class="vertical-v">View</div>
+                        <div class="portfolio-buttons-wrapper">
+                            <div class="vertical-v">Behance</div>
+                            <div class="vertical-v">GitHub</div>
                         </div>
                     </div>
                     <div id="img-3-wrapper">
                         <div id="port-img-3"></div>
-                        <div class="h-v-wrapper">
-                            <div class="horizontal-v">View</div>
+                        <div class="portfolio-buttons-wrapper">
+                            <div class="vertical-v">GitHub</div>
+                            <div class="vertical-v">Behance</div>
                         </div>
                     </div>
                     <div id="img-4-wrapper">
                         <div id="port-img-4"></div>
-                        <div class="v-v-wrapper">
-                            <div class="vertical-v" style="width:180px;">View</div>
+                        <div class="portfolio-buttons-wrapper">
+                            <div class="vertical-v" style="width:140px;">GitHub</div>
+                            <div class="vertical-v" style="width:140px;">Behance</div>
                         </div>
                     </div>
                     <div id="img-5-wrapper">
                         <div id="port-img-5"></div>
-                        <div class="h-v2-wrapper">
-                            <a class="horizontal-v-s" href="#">Visit site</a>
-                            <div class="horizontal-v">View</div>
+                        <div class="portfolio-buttons-wrapper">
+                            <a class="horizontal-v-s" href="#">GitHub</a>
+                            <div class="horizontal-v">Behance</div>
                         </div>
                     </div>
                     <div id="img-6-wrapper">
                         <div id="port-img-6"></div>
-                        <div class="v-v-wrapper" style="top:35%;width: 100%;">
-                            <div class="vertical-v" style="width:180px;">View</div>
+                        <div class="portfolio-buttons-wrapper">
+                            <div class="vertical-v" style="width:180px;">GitHub</div>
+                            <div class="vertical-v" style="width:180px;">Behance</div>
                         </div>
                     </div>
                     <div id="img-7-wrapper">
                         <div id="port-img-7"></div>
-                        <div class="v-v-wrapper" style="top:35%;width: 100%;">
-                            <div class="vertical-v" style="width:180px;">View</div>
+                            
+                        <div class="portfolio-buttons-wrapper">
+                            <div class="vertical-v" style="width:180px;">GitHub</div>
+                            <div class="vertical-v" style="width:180px;">Behance</div>
                         </div>
                     </div>
                     
@@ -166,9 +179,9 @@
             <div class="social-media-wrapper">
                 <div class="social-media-line" style="margin-bottom:10px;"></div>
 
-                <div class="icon-wrapper">
+                <a href="https://www.linkedin.com/in/davidchaveztech" class="icon-wrapper" target="_blank">
                     <img src="public/img/icon-linked-in.svg" class="social-media-icon">
-                </div>
+                </a>
 
                 <div class="icon-wrapper">
                     <img src="public/img/icon-behance.svg" class="social-media-icon">
@@ -234,16 +247,16 @@
             <div id="art-previews-wrapper">
                 <div class="art-column-1">
 
-                    <div class="art-img-1" id="preview-1">
-                        <img src="public/img/art-previews/preview-1.jpg" alt="" class="previewImg">
+                    <div class="art-img-1">
+                        <img src="public/img/art-previews/preview-1.jpg" link="public/img/art-work/luffy-by-davidchavez.tech.jpg" class="previewImg">
                     </div>
 
                     <div class="art-img-1">
-                        <img src="public/img/art-previews/preview-4.jpg" alt="" class="previewImg">
+                        <img src="public/img/art-previews/preview-4.jpg" link="public/img/art-work/male-model-by-davidchavez.tech.jpg" class="previewImg">
                     </div>
 
                     <div class="art-img-1">
-                        <img src="public/img/art-previews/preview-7.jpg" alt="" class="previewImg">
+                        <img src="public/img/art-previews/preview-7.jpg" link="public/img/art-work/mia-by-davidchavez.tech.jpg" class="previewImg">
                     </div>
 
                 </div>
@@ -251,15 +264,15 @@
                 <div class="art-column-2">
 
                     <div class="art-img-2">
-                        <img src="public/img/art-previews/preview-2.jpg" alt="" class="previewImg">
+                        <img src="public/img/art-previews/preview-2.jpg" link="public/img/art-work/water-color-estrella-by-davidchavez.tech.jpg" class="previewImg">
                     </div>
 
                     <div class="art-img-2">
-                        <img src="public/img/art-previews/preview-5.jpg" alt="" class="previewImg">
+                        <img src="public/img/art-previews/preview-5.jpg" link="public/img/art-work/white-hair-girl-by-davidchavez.tech.jpg" class="previewImg">
                     </div>
 
                     <div class="art-img-2">
-                        <img src="public/img/art-previews/preview-8.jpg" alt="" class="previewImg">
+                        <img src="public/img/art-previews/preview-8.jpg" link="public/img/art-work/baby-by-davidchavez.tech.jpg" class="previewImg">
                     </div>
 
                 </div>
@@ -267,15 +280,15 @@
                 <div class="art-column-3">
 
                     <div class="art-img-3">
-                        <img src="public/img/art-previews/preview-3.jpg" alt="" class="previewImg">
+                        <img src="public/img/art-previews/preview-3.jpg" link="public/img/art-work/niece-crying-by-davidchavez.tech.jpg" class="previewImg">
                     </div>
 
                     <div class="art-img-3">
-                        <img src="public/img/art-previews/preview-6.jpg" alt="" class="previewImg">
+                        <img src="public/img/art-previews/preview-6.jpg" link="public/img/art-work/zapdos-by-davidchavez.tech.jpg" class="previewImg">
                     </div>
 
                     <div class="art-img-3">
-                        <img src="public/img/art-previews/preview-9.jpg" alt="" class="previewImg">
+                        <img src="public/img/art-previews/preview-9.jpg" link="public/img/art-work/girl-in-the-dark-by-davidchavez.tech.jpg" class="previewImg">
                     </div>
                 
                 </div>
@@ -292,8 +305,22 @@
                 </div>
             </div>
 
+            <div id="contact-form-wrapper">
+                <p id="email"><span id="hello">hello</span>@davidchavez.tech<img id="copy-icon" src="public/img/icon-copy.svg"><span id='copy'>Copy!</span></p>
+                <input type="text" id="text-input-name" placeholder="Name">
+                <input type="text" id="text-input-email" placeholder="e-mail">
+                <textarea id="message" placeholder="Message"></textarea>
+            </div>
+            
             <div id="loader-wrapper">
-                <div id="loader-bar"></div>    
+                <div id="art-img-container">
+                    <img id="img-loader" src="">
+                    <div id="loader-inner-wrapper">
+                        <div id="loader-bg">
+                            <div id="loader-bar"></div>
+                        </div>    
+                    </div>
+                </div>
             </div>
         </page-3>
     </div>    

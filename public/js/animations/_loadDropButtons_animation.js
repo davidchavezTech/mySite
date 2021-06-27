@@ -18,6 +18,7 @@ function dropButtons(clickedElement){
             delay = i*200;
             dropButtons_importedArray[i].style.transform = 'translateY(-15px)'
             dropButtons_importedArray[i].style.transform += 'rotate(1deg)'
+            dropButtons_importedArray[i].style.pointerEvents = 'none'
             setTimeout(() => {
                 dropButtons_importedArray[i].style.transition = 'all .7s ease-in';
                 dropButtons_importedArray[i].style.transform = 'translateY(50vh)'
@@ -28,6 +29,7 @@ function dropButtons(clickedElement){
             dropButtons_importedArray[i].style.transition = "all .3s ease-out"
             dropButtons_importedArray[i].style.top = "184px"
             dropButtons_importedArray[i].classList.add('selected');
+            dropButtons_importedArray[i].style.pointerEvents = 'all'
         }
     }
     
@@ -40,5 +42,6 @@ function resetButtons(){
         dropButtons_importedArray[i].style.transform = `TranslateY(0px)`
         dropButtons_importedArray[i].style.transform += `rotate(0deg)`
         dropButtons_importedArray[i].style.opacity = 1
+        dropButtons_importedArray[i].style.pointerEvents = 'all'
     }
 }

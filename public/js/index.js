@@ -1,7 +1,44 @@
 const scrollableElement = document.querySelector(".pages-wrapper");
 (function (y){
     scrollableElement.scrollTo(0, y);
-})(9999)
+})(0)
+
+const ball = document.querySelector('#initial-ball');
+const blocker = document.querySelector('#blocker');
+
+// -------------loading screen-----------------------
+// -------------loading screen-----------------------
+
+(()=>{
+    function playAgain(){
+            
+        ball.classList.add('loading-ball--animation');
+        setTimeout(()=>{
+            ball.classList.remove('loading-ball--animation');
+        }, 1400)
+        setTimeout(()=>{
+            if(document.readyState != "complete") playAgain()
+            else loadedPage();
+        }, 1500)
+            
+    }playAgain();
+})()
+
+function loadedPage(){
+    ball.classList.remove('loading-ball--animation');
+    setTimeout(()=>{
+        ball.classList.add('load-ball--animation');
+    }, 100)
+    setTimeout(()=>{
+        ball.classList.remove('drop-ball');
+        ball.classList.add('expand-ball--animation');
+        scrollableElement.classList.add('expand-mask')
+        blocker.classList.add('hide-white-bg')
+    }, 800)
+    setTimeout(()=>{
+        blocker.style.display = 'none';
+    }, 2500)
+}
 
 const pageOne = document.querySelector('page-1');
 const pageTwo = document.querySelector('page-2');
@@ -158,6 +195,10 @@ const column2 = document.querySelector(".art-column-2");
 const column3 = document.querySelector(".art-column-3");
 const previewsWrapper = document.querySelector("#art-previews-wrapper");
 const contactWrapper = document.querySelector("#contact-wrapper");
+const contactFormWrapper = document.querySelector("#contact-form-wrapper");
+const contactButton = document.querySelector('#contact-button');
+const aboutMeButton = document.querySelector('#about-me-button');
+
 
 const aboutButtonsArray = [
     bioWrapper,
@@ -168,7 +209,50 @@ const aboutButtonsArray = [
 _loadXanimation(aboutButtonsArray)
 _loadDropButtons_animation(aboutButtonsArray)
 _load_show_translateAndOpacity(bioWrapper, aboutMeCards, 200, 800)
+_load_show_translateAndOpacity(contactWrapper, contactFormWrapper, 200, 800)
 _loadToggleClassStagger(previewsWrapper, artWrapper, [column1, column2, column3], 100, 800)
+
+contactButton.addEventListener('click',(e)=>{
+    if(!(contactWrapper.classList.contains('selected'))) {
+        dropButtons(contactWrapper);
+        contactWrapper.classList.add('cards-shown');
+        show_translateAndOpacity(contactFormWrapper, 200, 200)
+        arrowToX(contactWrapper)
+    } else{
+        resetButtons();
+        hide_trasnlateAndOpacity(contactFormWrapper)
+        arrowToX(contactWrapper)
+    }
+})
+
+document.querySelector('#contact-me-bar').addEventListener('click',(e)=>{
+    if(!(contactWrapper.classList.contains('selected'))) {
+        dropButtons(contactWrapper);
+        contactWrapper.classList.add('cards-shown');
+        show_translateAndOpacity(contactFormWrapper, 200, 200)
+        arrowToX(contactWrapper)
+    } else{
+        resetButtons();
+        hide_trasnlateAndOpacity(contactFormWrapper)
+        arrowToX(contactWrapper)
+    }
+})
+
+document.querySelector('#about-me-bar').addEventListener('click',(e)=>{
+    resetButtons();
+    hide_trasnlateAndOpacity(contactFormWrapper)
+    arrowToX(contactWrapper)
+    if(contactWrapper.querySelector('.arrow-container').children[0].classList.contains('expanded')){
+        arrowToX(contactWrapper)
+    }
+})
+aboutMeButton.addEventListener('click',(e)=>{
+    resetButtons();
+    hide_trasnlateAndOpacity(contactFormWrapper)
+    if(contactWrapper.querySelector('.arrow-container').children[0].classList.contains('expanded')){
+        arrowToX(contactWrapper)
+    }
+})
 
 //------------------calculate age----------------------------------
 
@@ -196,23 +280,115 @@ function calculate_age(birth_month,birth_day,birth_year)
     return age;
 }
 
-let preview1 = document.getElementById('preview-1');
+// let preview1 = document.getElementById('preview-1');
 
-preview1.addEventListener('click', ()=>{
-    alert('yeeh')
-})
+// preview1.addEventListener('click', ()=>{
+//     loadImg('public/img/art-work/luffy-by-davidchavez.tech.jpg')
+// })
 
 //-----------------loader animation------------------------
 
 const loaderWrapper = document.querySelector('#loader-wrapper');
+const loaderBG = document.querySelector('#loader-bg');
 const loaderBar = document.querySelector('#loader-bar');
+const loaderInnerWrapper = document.querySelector('#loader-inner-wrapper');
 
-setTimeout(()=>{
-    loaderWrapper.style.right = '1920px';
-    loaderBar.style.width = '200px';
-}, 1000)
-setTimeout(()=>{
-    loaderBar.style.transition = 'all .9s ease-in-out';
-    loaderBar.style.float = 'left';
-    loaderBar.style.width = '0%';
-}, 2000)
+function animateLoader(){
+
+    loaderWrapper.style.opacity = 1;
+    loaderWrapper.style.pointerEvents = 'all';
+    setTimeout(()=>{
+        setTimeout(()=>{
+            loaderBG.classList.add('shrink-bg')
+        }, 200)
+        loaderBar.style.transform = `translateX(${loaderBar.clientWidth-200}px)`;
+    }, 200)
+}
+function resetLoader(){
+    loaderWrapper.style.pointerEvents = 'none';
+    loaderWrapper.style.opacity = 0;
+    setTimeout(()=>{
+    loaderBG.classList.remove('shrink-bg')
+}, 400)
+    loaderBar.style.transform = `translateX(0px)`;
+}
+window.addEventListener('click', (e)=>{
+    let clickedElement = e.target
+    resetLoader();
+    if(clickedElement.classList.contains('previewImg')) loadImg(clickedElement.getAttribute('link'));
+
+})
+const _img = document.getElementById('img-loader');
+
+function loadImg(imgURL){
+    let newImg = new Image;
+    newImg.onload = function() {
+
+        _img.src = this.src;
+        if(_img.height > _img.width){
+            console.log('one')
+            _img.parentElement.style.width = "auto";
+            _img.style.height = `${_img.parentElement.clientHeight}px`
+            _img.style.width = 'auto'
+        }else {
+            console.log('two')
+            _img.parentElement.style.width = "80vh";
+            _img.style.width = `${_img.parentElement.clientWidth}px`
+            _img.style.height = 'auto'
+        }
+        animateLoader()
+    }
+    newImg.src = imgURL;
+}
+
+//-----------------copy text-----------------------------
+
+const copyIcon = document.querySelector('#copy-icon');
+const copySpan = document.querySelector('#copy');
+
+copyIcon.addEventListener('click', async ()=>{
+    let delay = 800
+    try {
+        await navigator.clipboard.writeText("hello@davidchavez.tech");
+        copySpan.style.opacity = 0;
+        setTimeout(()=>{
+            copySpan.style.color = 'white';
+            copySpan.textContent = 'Copied!'
+            copySpan.style.opacity = 1;
+        },delay*0.2)
+        setTimeout(()=>{
+            copySpan.style.opacity = 0;
+        },delay*2.5)
+        setTimeout(()=>{
+            copySpan.style.color = '#d0d0d0';
+            copySpan.textContent = 'Copy!';
+            copySpan.style.opacity = 1;
+        },delay*2.9)
+      } catch (error) {
+        console.error("Copy failed", error);
+      }
+    
+});
+copySpan.addEventListener('click', async ()=>{
+    let delay = 1000
+    try {
+        await navigator.clipboard.writeText("hello@davidchavez.tech");
+        copySpan.style.opacity = 0;
+        setTimeout(()=>{
+            copySpan.style.color = 'white';
+            copySpan.textContent = 'Copied!'
+            copySpan.style.opacity = 1;
+        },delay)
+        setTimeout(()=>{
+            copySpan.style.opacity = 0;
+        },delay*3)
+        setTimeout(()=>{
+            copySpan.style.color = '#d0d0d0';
+            copySpan.textContent = 'Copy!';
+            copySpan.style.opacity = 1;
+        },delay*4)
+      } catch (error) {
+        console.error("Copy failed", error);
+      }
+    
+});
