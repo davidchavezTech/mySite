@@ -212,18 +212,20 @@ _load_show_translateAndOpacity(bioWrapper, aboutMeCards, 200, 800)
 _load_show_translateAndOpacity(contactWrapper, contactFormWrapper, 200, 800)
 _loadToggleClassStagger(previewsWrapper, artWrapper, [column1, column2, column3], 100, 800)
 
-contactButton.addEventListener('click',(e)=>{
-    if(!(contactWrapper.classList.contains('selected'))) {
-        dropButtons(contactWrapper);
-        contactWrapper.classList.add('cards-shown');
-        show_translateAndOpacity(contactFormWrapper, 200, 200)
-        arrowToX(contactWrapper)
-    } else{
-        resetButtons();
-        hide_trasnlateAndOpacity(contactFormWrapper)
-        arrowToX(contactWrapper)
-    }
-})
+if(contactButton){
+    contactButton.addEventListener('click',(e)=>{
+        if(!(contactWrapper.classList.contains('selected'))) {
+            dropButtons(contactWrapper);
+            contactWrapper.classList.add('cards-shown');
+            show_translateAndOpacity(contactFormWrapper, 200, 200)
+            arrowToX(contactWrapper)
+        } else{
+            resetButtons();
+            hide_trasnlateAndOpacity(contactFormWrapper)
+            arrowToX(contactWrapper)
+        }
+    })
+}
 
 document.querySelector('#contact-me-bar').addEventListener('click',(e)=>{
     if(!(contactWrapper.classList.contains('selected'))) {
@@ -246,13 +248,15 @@ document.querySelector('#about-me-bar').addEventListener('click',(e)=>{
         arrowToX(contactWrapper)
     }
 })
-aboutMeButton.addEventListener('click',(e)=>{
-    resetButtons();
-    hide_trasnlateAndOpacity(contactFormWrapper)
-    if(contactWrapper.querySelector('.arrow-container').children[0].classList.contains('expanded')){
-        arrowToX(contactWrapper)
-    }
-})
+if(aboutMeButton){
+    aboutMeButton.addEventListener('click',(e)=>{
+        resetButtons();
+        hide_trasnlateAndOpacity(contactFormWrapper)
+        if(contactWrapper.querySelector('.arrow-container').children[0].classList.contains('expanded')){
+            arrowToX(contactWrapper)
+        }
+    })
+}
 
 //------------------calculate age----------------------------------
 

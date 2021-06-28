@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Chavez - Tech</title>
     <link rel="icon" href="./favico.ico"  type="image/icon type">
-    <link rel="stylesheet" type="text/css" href="public/css/index.css" media="screen"/>
+    <link rel="stylesheet" media="screen and (max-width: 1280px)" type="text/css" href="public/css/smaller-monitor.css">
+    <link rel="stylesheet" media="(min-width: 1281px) and (max-width: 1919px)" type="text/css" href="public/css/small-monitor.css">
+    <link rel="stylesheet" media="screen and (min-width: 1920px)" type="text/css" href="public/css/index.css">
+    <link rel="stylesheet" media="screen and (max-width: 1279px)" type="text/css" href="public/css/mobile.css">
+    <!-- <link rel="stylesheet" type="text/css" href="public/css/index.css" media="screen"/> -->
 </head>
 <body>
     <div id="blocker">
@@ -44,16 +48,16 @@
 
 
         <!-- buttons -->
-        <a href="#page-one">
+        <a href="#page-one" class="nav-button">
             <span class="nav-item current-page"><span class="top-bottom-borders">Welcome</span></span>
         </a>
-        <a href="#page-two">
+        <a href="#page-two" class="nav-button">
             <span class="nav-item"><span class="top-bottom-borders">My work</span></span>
         </a>
-        <a href="#page-three" id="about-me-button">
+        <a href="#page-three" id="about-me-button" class="nav-button">
             <span class="nav-item"><span class="top-bottom-borders">About me</span></span>
         </a>
-        <a href="#page-three" id="contact-button">
+        <a href="#page-three" id="contact-button" class="nav-button">
             <span class="nav-item"><span class="top-bottom-borders">Contact</span></span>
         </a>
     </div>
@@ -176,7 +180,7 @@
 
             <!-- social media left bar -->
 
-            <div class="social-media-wrapper">
+            <div class="social-media-wrapper hide">
                 <div class="social-media-line" style="margin-bottom:10px;"></div>
 
                 <a href="https://www.linkedin.com/in/davidchaveztech" class="icon-wrapper" target="_blank">

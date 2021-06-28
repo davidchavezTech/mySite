@@ -27,7 +27,7 @@ function dropButtons(clickedElement){
             }, 200 + delay);
         }else{
             dropButtons_importedArray[i].style.transition = "all .3s ease-out"
-            dropButtons_importedArray[i].style.top = "184px"
+            dropButtons_importedArray[i].style.top = `${originalTopPositions[0]}px`
             dropButtons_importedArray[i].classList.add('selected');
             dropButtons_importedArray[i].style.pointerEvents = 'all'
         }
