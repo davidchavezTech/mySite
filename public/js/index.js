@@ -1,7 +1,7 @@
 const scrollableElement = document.querySelector(".pages-wrapper");
 (function (y){
     scrollableElement.scrollTo(0, y);
-})(0)
+})(9999)
 
 const ball = document.querySelector('#initial-ball');
 const blocker = document.querySelector('#blocker');
@@ -284,13 +284,7 @@ function calculate_age(birth_month,birth_day,birth_year)
     return age;
 }
 
-// let preview1 = document.getElementById('preview-1');
-
-// preview1.addEventListener('click', ()=>{
-//     loadImg('public/img/art-work/luffy-by-davidchavez.tech.jpg')
-// })
-
-//-----------------loader animation------------------------
+//----------------- image loader animation------------------------
 
 const loaderWrapper = document.querySelector('#loader-wrapper');
 const loaderBG = document.querySelector('#loader-bg');
@@ -396,3 +390,76 @@ copySpan.addEventListener('click', async ()=>{
       }
     
 });
+
+
+//-----------------CONTACT ME BUTTON - MOBILE------------------------
+
+const bioButtonMobile = document.querySelector('#bio-button--mobile');
+const artButtonMobile = document.querySelector('#art-button--mobile');
+const contactMeButtonMobile = document.querySelector('#contact-button--mobile');
+const page3Blurrer = document.querySelector('#page-3-blurrer');
+const contactMeWrapper_mobile = document.querySelector('#contact_me_wraper--mobile');
+const aboutMeWrapper_mobile = document.querySelector('#about-me-text-wrapper--mobile');
+const cancelMessageMe = document.querySelector('#cancel-button-mobile');
+const bioWrapper_mobile = document.querySelector('#bio-wrapper--mobile');
+const aboutMeCloseButton = document.querySelector('#bio-close-button');
+const artWrapper_mobile = document.querySelector('#art_wrapper--mobile');
+const artContainerWrapper_mobile = document.querySelector('#art-previews-wrapper--mobile');
+const artColumn1_mobile = document.querySelector('#art-column-1--mobile');
+const artColumn2_mobile = document.querySelector('#art-column-2--mobile');
+const artCloseButton_mobile = document.querySelector('#close-gallery-button--mobile');
+const artPreviews_mobile = artContainerWrapper_mobile.querySelectorAll('img')
+
+bioButtonMobile.addEventListener('click', ()=> mobile_showBlurrer(bioWrapper_mobile));
+aboutMeCloseButton.addEventListener('click', ()=> mobile_hideBlurrer(bioWrapper_mobile));
+
+contactMeButtonMobile.addEventListener('click', ()=> mobile_showBlurrer(contactMeWrapper_mobile));
+cancelMessageMe.addEventListener('click', ()=> mobile_hideBlurrer(contactMeWrapper_mobile))
+
+artButtonMobile.addEventListener('click', ()=> {
+    
+    mobile_showBlurrer(artWrapper_mobile)
+    let delay = 0;
+    setTimeout(()=>{
+        let columns = [artColumn1_mobile, artColumn2_mobile]
+        let maxNumberOfChildren = artColumn1_mobile.childElementCount;
+        let staggerDelay = 100;
+        let counter = 0
+        for(let j=0;maxNumberOfChildren>j;j++){
+            for(let i=0;columns.length>i;i++){
+                makeChildAppear(columns[i], j, staggerDelay, counter)
+                counter++
+            }
+        }
+    }, delay)
+});
+artCloseButton_mobile.addEventListener('click', ()=> {
+    mobile_hideBlurrer(artWrapper_mobile)
+    artPreviews_mobile.forEach(img=>{
+        img.style.transition = 'all .2s ease-out';
+        img.classList.remove('appearFromBottom');
+        img.style.transform = 'translateY(50px)';
+        img.style.opacity = 0;
+    })
+})
+
+
+function mobile_showBlurrer(wrapper){
+    page3Blurrer.style.opacity = 1;
+    page3Blurrer.style.pointerEvents = 'all';
+
+    wrapper.style.display = 'block';
+    wrapper.style.opacity = 1;
+    wrapper.style.pointerEvents = 'all';
+}
+
+function mobile_hideBlurrer(wrapper){
+    page3Blurrer.style.opacity = 0;
+    page3Blurrer.style.pointerEvents = 'none';
+
+    wrapper.style.opacity = 0;
+    wrapper.style.pointerEvents = 'none';
+    wrapper.style.display = 'none';
+}
+
+// _loadToggleClassStagger(artContainerWrapper_mobile, artButtonMobile, [artColumn1_mobile, artColumn2_mobile], 100, 800)
