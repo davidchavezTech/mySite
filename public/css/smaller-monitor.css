@@ -1577,4 +1577,8 @@ textarea::placeholder {
   font-size: 16px;
   padding: 10px 8px;
 }
+
+#about-text, #about-me-buttons-wrapper, #page-3-blurrer {
+  display: none;
+}
 /*# sourceMappingURL=smaller-monitor.css.map */
