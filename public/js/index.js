@@ -1,7 +1,11 @@
 const scrollableElement = document.querySelector(".pages-wrapper");
-(function (y){
-    scrollableElement.scrollTo(0, y);
-})(9999)
+// (function (y){
+//     scrollableElement.scrollTo(0, y);
+// })(0)
+
+let mobile =  ( 'ontouchstart' in window ) || 
+                ( navigator.maxTouchPoints > 0 ) || 
+                ( navigator.msMaxTouchPoints > 0 );
 
 const ball = document.querySelector('#initial-ball');
 const blocker = document.querySelector('#blocker');
@@ -22,7 +26,7 @@ const blocker = document.querySelector('#blocker');
         }, 1500)
             
     }playAgain();
-})()
+})();
 
 function loadedPage(){
     ball.classList.remove('loading-ball--animation');
@@ -76,7 +80,6 @@ navbarBarsWrappers.forEach(navbarBarWrapper =>{
         changeSelectedBar(e.currentTarget)
     })
 })
-
 function changeSelectedBar(clickedElement){
     //remove the "active" class from the active bar
     for(let i=0;navbarBarsWrappers.length>i;i++){
@@ -138,8 +141,13 @@ scrollableElement.addEventListener('scroll', (e)=>{
         changeSelectedBar(navbarBarsWrappers[1])
     }
     else if(0==pageThree.getBoundingClientRect().y) {
-        selectNavbarButton(navbarButtons[2])
-        changeSelectedBar(navbarBarsWrappers[2])
+        if(contactMeWrapper_mobile.style.opacity==1){
+            selectNavbarButton(navbarButtons[3])
+            changeSelectedBar(navbarBarsWrappers[3])
+        }else{
+            selectNavbarButton(navbarButtons[2])
+            changeSelectedBar(navbarBarsWrappers[2])
+        }
     }
 })
 
@@ -151,9 +159,11 @@ function selectNavbarButton(currentPage){
         } 
     }
     currentPage.classList.add('current-page');
-}
+};
 
 //--------------------- portfolio images hover effect ---------------------------
+
+
 
 const portfolioElement1 = document.querySelector('#img-1-wrapper')
 const portfolioElement2 = document.querySelector('#img-2-wrapper')
@@ -163,14 +173,34 @@ const portfolioElement5 = document.querySelector('#img-5-wrapper')
 const portfolioElement6 = document.querySelector('#img-6-wrapper')
 const portfolioElement7 = document.querySelector('#img-7-wrapper')
 
-portfolioImgHoverEffect(portfolioElement1)
-portfolioImgHoverEffect(portfolioElement2)
-portfolioImgHoverEffect(portfolioElement3)
-portfolioImgHoverEffect(portfolioElement4)
-portfolioImgHoverEffect(portfolioElement5)
-portfolioImgHoverEffect(portfolioElement6)
-portfolioImgHoverEffect(portfolioElement7)
+if(!mobile) {
+    (function (){
+        portfolioImgHoverEffect(portfolioElement1)
+        portfolioImgHoverEffect(portfolioElement2)
+        portfolioImgHoverEffect(portfolioElement3)
+        portfolioImgHoverEffect(portfolioElement4)
+        portfolioImgHoverEffect(portfolioElement5)
+        portfolioImgHoverEffect(portfolioElement6)
+        portfolioImgHoverEffect(portfolioElement7)
+    })()
+}else{
+//---------------------- MOBILE hover disable insta click ------------------
 
+const portfolioImageWrappers = document.querySelectorAll('.portfolioImageWrapper-identifier');
+portfolioImageWrappers.forEach(wrapper =>{
+    wrapper.addEventListener('click', ()=>{
+        //select each button and use spread operator to conver HTMLCollection into an array
+        let children = [...wrapper.children[1].children];
+        children.forEach(child =>{
+            child.style.pointerEvents = 'all'
+        });
+        wrapper.children[0].classList.add('blurr-and-grow')
+        wrapper.children[0].style.backgroundSize = "105% 105%"
+    
+        wrapper.children[1].style.opacity = 1;
+    })
+})
+}
 function portfolioImgHoverEffect(wrapper){
     wrapper.addEventListener('mouseenter', (e)=>{
         e.currentTarget.children[0].classList.add('blurr-and-grow')
@@ -188,7 +218,7 @@ function portfolioImgHoverEffect(wrapper){
 //--------------------- x animation ---------------------------
 
 const bioWrapper = document.querySelector("#bio-wrapper");
-    const aboutMeCards = document.querySelectorAll('.about-me-card');
+const aboutMeCards = document.querySelectorAll('.about-me-card');
 const artWrapper = document.querySelector("#art-wrapper");
 const column1 = document.querySelector(".art-column-1");
 const column2 = document.querySelector(".art-column-2");
@@ -228,12 +258,18 @@ if(contactButton){
 }
 
 document.querySelector('#contact-me-bar').addEventListener('click',(e)=>{
-    if(!(contactWrapper.classList.contains('selected'))) {
+    if(mobile){
+        setTimeout(() => {
+            mobile_showBlurrer(contactMeWrapper_mobile);
+        }, 400);
+        return
+    } 
+    if(!(contactWrapper.classList.contains('selected'))&&(!mobile)) {
         dropButtons(contactWrapper);
         contactWrapper.classList.add('cards-shown');
         show_translateAndOpacity(contactFormWrapper, 200, 200)
         arrowToX(contactWrapper)
-    } else{
+    } else if((!mobile)){
         resetButtons();
         hide_trasnlateAndOpacity(contactFormWrapper)
         arrowToX(contactWrapper)
@@ -241,6 +277,11 @@ document.querySelector('#contact-me-bar').addEventListener('click',(e)=>{
 })
 
 document.querySelector('#about-me-bar').addEventListener('click',(e)=>{
+    if(mobile&&contactMeWrapper_mobile.style.opacity==1){
+        mobile_hideBlurrer(contactMeWrapper_mobile)
+        return
+    };
+    if(mobile) return
     resetButtons();
     hide_trasnlateAndOpacity(contactFormWrapper)
     arrowToX(contactWrapper)
@@ -283,6 +324,47 @@ function calculate_age(birth_month,birth_day,birth_year)
     }
     return age;
 }
+//----------------- video loader animation------------------------
+
+const loaderWrapperForVideo = document.querySelector('#loader-wrapper-for-video');
+const loaderBGForVideo = document.querySelector('#loader-bg-for-video');
+const loaderBarForVideo = document.querySelector('#loader-bar-for-video');
+const videoPlayer = document.querySelector('#video_player');
+const loaderInnerWrapperForVideo = document.querySelector('#loader-inner-wrapper-for-video');
+
+loaderInnerWrapperForVideo.style.pointerEvents = 'none';
+function animateVideoLoader(){
+    loaderWrapperForVideo.style.opacity = 1;
+    loaderWrapperForVideo.style.pointerEvents = 'all';
+    setTimeout(()=>{
+        setTimeout(()=>{
+            loaderBGForVideo.classList.add('shrink-bg')
+        }, 200)
+        loaderBarForVideo.style.transform = `translateX(${loaderBarForVideo.clientWidth-200}px)`;
+    }, 200)
+}
+function resetVideoLoader(){
+    loaderWrapperForVideo.style.pointerEvents = 'none';
+    loaderWrapperForVideo.style.opacity = 0;
+    videoPlayer.parentElement.pause()
+    setTimeout(()=>{
+        loaderBGForVideo.classList.remove('shrink-bg')
+    }, 400)
+    loaderBarForVideo.style.transform = `translateX(0px)`;
+}
+
+
+
+function loadVid(src){
+    let indexOfStartOfString = window.location.href.indexOf("/",8)
+    let loadedURL = videoPlayer.src.substr(indexOfStartOfString+1)
+    if(loadedURL != src){
+        videoPlayer.src = src;
+        videoPlayer.parentElement.load();
+        videoPlayer.parentElement.play();
+    }else videoPlayer.parentElement.play();
+    animateVideoLoader();
+}
 
 //----------------- image loader animation------------------------
 
@@ -292,7 +374,6 @@ const loaderBar = document.querySelector('#loader-bar');
 const loaderInnerWrapper = document.querySelector('#loader-inner-wrapper');
 
 function animateLoader(){
-
     loaderWrapper.style.opacity = 1;
     loaderWrapper.style.pointerEvents = 'all';
     setTimeout(()=>{
@@ -310,10 +391,39 @@ function resetLoader(){
 }, 400)
     loaderBar.style.transform = `translateX(0px)`;
 }
+const hoverEffectWrappers = document.querySelectorAll('.portfolioImageWrapper-identifier');
+
 window.addEventListener('click', (e)=>{
+    mobile = ( 'ontouchstart' in window ) || 
+    ( navigator.maxTouchPoints > 0 ) || 
+    ( navigator.msMaxTouchPoints > 0 );
+    
+    if(mobile){
+        aboutButtonsArray.forEach(button =>{
+            button.style.pointerEvents = 'none';
+        })
+    }
     let clickedElement = e.target
+    if(clickedElement.nodeName == "VIDEO") return;
+    //cancel "hover" effect for "onClick outside - dissipate" for mobile
+    if(!clickedElement.closest('.portfolioImageWrapper-identifier')&&mobile){
+        hoverEffectWrappers.forEach(wrapper =>{
+            //select each button and use spread operator to conver HTMLCollection into an array
+            let children = [...wrapper.children[1].children];
+            children.forEach(child =>{
+                child.style.pointerEvents = 'none'
+                wrapper.children[0].classList.remove('blurr-and-grow');
+                wrapper.children[0].style.backgroundSize = "100% 100%";
+        
+                wrapper.children[1].style.opacity = 0;
+            });
+        })
+    }
     resetLoader();
-    if(clickedElement.classList.contains('previewImg')) loadImg(clickedElement.getAttribute('link'));
+    resetVideoLoader();
+    if(clickedElement.classList.contains('video-identifier')){
+        loadVid(clickedElement.getAttribute('custom-source'));
+    }else if(clickedElement.classList.contains('previewImg')) loadImg(clickedElement.getAttribute('link'));
 
 })
 const _img = document.getElementById('img-loader');
@@ -324,12 +434,12 @@ function loadImg(imgURL){
 
         _img.src = this.src;
         if(_img.height > _img.width){
-            console.log('one')
+            _img.parentElement.style.height = "80vh";
             _img.parentElement.style.width = "auto";
             _img.style.height = `${_img.parentElement.clientHeight}px`
             _img.style.width = 'auto'
         }else {
-            console.log('two')
+            _img.parentElement.style.height = "auto";
             _img.parentElement.style.width = "80vh";
             _img.style.width = `${_img.parentElement.clientWidth}px`
             _img.style.height = 'auto'
@@ -462,4 +572,25 @@ function mobile_hideBlurrer(wrapper){
     wrapper.style.display = 'none';
 }
 
-// _loadToggleClassStagger(artContainerWrapper_mobile, artButtonMobile, [artColumn1_mobile, artColumn2_mobile], 100, 800)
+//---------------MOBILE-----------------
+
+if(mobile){
+    
+    let videoElement = document.querySelector('#video-container').children[0]
+    videoElement.parentElement.style.width = '400px';
+    videoElement.parentElement.style.height = '225px';
+
+    videoElement.width = '400';
+    videoElement.height = '225';
+    
+}
+
+//-----------ERROR Message for behance -------------------
+
+const notAvailableElements = document.querySelectorAll('.notAvailable');
+
+notAvailableElements.forEach(element =>{
+    element.addEventListener('click', ()=>{
+        showErrorMsg('Not available at this time :(', 2000)
+    })
+})

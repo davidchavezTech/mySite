@@ -54,7 +54,7 @@ body {
 // ----------------loading screen----------------------
 // ----------------loading screen----------------------
 #blocker{
-    // z-index: 1000;
+    z-index: 1000;
     overflow: hidden;
     position: absolute;
     width: 100vw;
@@ -641,6 +641,9 @@ a{
         }
     }
     .vertical-v-s{
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
         display: inline-block;
         background-color: rgba(255,112,11, 1);
         font-size: 25px;
@@ -893,7 +896,7 @@ a{
 }
 .art-column-3{
     width: 285px;
-}#loader-wrapper{
+}.loader-wrapper{
     margin-top: 20px;
     pointer-events: none;
     display: flex;
@@ -907,20 +910,26 @@ a{
     // right:0;
     transition: all .4s ease-in-out;
     backdrop-filter: blur(20px);
+    top: 0;
 }#art-img-container{
     height: 80vh;
     overflow: hidden;
     background-color: black;
     position: relative;
+}#video-container{
+    height:450px;
+    overflow: hidden;
+    background-color: black;
+    position: relative;
 }#img-loader{
     height: inherit;
-}#loader-inner-wrapper{
+}#loader-inner-wrapper, #loader-inner-wrapper-for-video{
     position: absolute;
     top:0;
     left:0;
     height: 100%;
     width: 100%;
-}#loader-bg{
+}#loader-bg, #loader-bg-for-video{
     position: relative;
     top:0;
     left:0;
@@ -928,7 +937,7 @@ a{
     width: 100%;
     background-color: #fda713;
     overflow: hidden;
-}#loader-bar{
+}#loader-bar, #loader-bar-for-video{
     width: 250px;
     right: 0px;
     background-color: rgb(255,85,4);
@@ -1031,4 +1040,9 @@ a{
     color: white;
     font-size: 16px;
     padding: 10px 8px;
+}#about-text, #about-me-buttons-wrapper, #page-3-blurrer{
+    display: none;
+}#error-message{
+    position: absolute;
+    top: 0;
 }

@@ -43,6 +43,7 @@ body {
 }
 
 #blocker {
+  z-index: 1000;
   overflow: hidden;
   position: absolute;
   width: 100vw;
@@ -736,7 +737,7 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 50px;
+  margin-left: 1vw;
   left: 0;
 }
 
@@ -950,11 +951,14 @@ a {
 }
 
 #portfolio-cont .vertical-v-s {
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
   display: inline-block;
   background-color: #ff700b;
   font-size: 25px;
   color: white;
-  width: 205px;
+  width: 90%;
   height: 50px;
   padding-top: 17px;
   text-align: center;
@@ -1331,7 +1335,7 @@ a {
   width: 285px;
 }
 
-#loader-wrapper {
+.loader-wrapper {
   margin-top: 20px;
   pointer-events: none;
   display: -webkit-box;
@@ -1352,6 +1356,7 @@ a {
   transition: all .4s ease-in-out;
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
+  top: 0;
 }
 
 #art-img-container {
@@ -1361,11 +1366,18 @@ a {
   position: relative;
 }
 
+#video-container {
+  height: 450px;
+  overflow: hidden;
+  background-color: black;
+  position: relative;
+}
+
 #img-loader {
   height: inherit;
 }
 
-#loader-inner-wrapper {
+#loader-inner-wrapper, #loader-inner-wrapper-for-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -1373,7 +1385,7 @@ a {
   width: 100%;
 }
 
-#loader-bg {
+#loader-bg, #loader-bg-for-video {
   position: relative;
   top: 0;
   left: 0;
@@ -1383,7 +1395,7 @@ a {
   overflow: hidden;
 }
 
-#loader-bar {
+#loader-bar, #loader-bar-for-video {
   width: 250px;
   right: 0px;
   background-color: #ff5504;
@@ -1576,5 +1588,9 @@ textarea::placeholder {
   color: white;
   font-size: 16px;
   padding: 10px 8px;
+}
+
+#about-text, #about-me-buttons-wrapper, #page-3-blurrer {
+  display: none;
 }
 /*# sourceMappingURL=smaller-monitor.css.map */

@@ -6,16 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>David Chavez - Tech</title>
     <link rel="icon" href="./favico.ico"  type="image/icon type">
-    <link rel="stylesheet" media="screen and (max-width: 1280px)" type="text/css" href="public/css/smaller-monitor.css">
+    <link rel="stylesheet" media="(min-width: 732px) and (max-width: 1280px)" type="text/css" href="public/css/smaller-monitor.css">
     <link rel="stylesheet" media="(min-width: 1281px) and (max-width: 1919px)" type="text/css" href="public/css/small-monitor.css">
     <link rel="stylesheet" media="screen and (min-width: 1920px)" type="text/css" href="public/css/index.css">
-    <link rel="stylesheet" media="screen and (max-width: 1279px)" type="text/css" href="public/css/mobile.css">
+    <link rel="stylesheet" media="screen and (max-width: 731px)" type="text/css" href="public/css/mobile.css">
     <!-- <link rel="stylesheet" type="text/css" href="public/css/index.css" media="screen"/> -->
 </head>
 <body>
+    <div id="error-message-wrapper-fix">
+        <div id="error-message" class="hide">
+            <p id="error-text">Not available at this time :(</p>
+        </div>
+    </div>
     <div id="blocker">
         <div id="loading-screen-wrapper">
-            <img id="initial-ball" class="drop-ball" src="public/img/logo.svg"></div>
+            <img id="initial-ball" class="drop-ball" src="public/img/logo.svg">
         </div>
     </div>
 
@@ -71,16 +76,18 @@
                 <div class="social-media-wrapper">
                     <div class="social-media-line" style="margin-bottom:10px;"></div>
 
-                    <a href="https://www.linkedin.com/in/davidchaveztech" class="icon-wrapper" target="_blank">
-                        <img src="public/img/icon-linked-in.svg" class="social-media-icon">
-                    </a>
+                        <a href="https://www.linkedin.com/in/davidchaveztech" class="icon-wrapper" target="_blank">
+                            <img src="public/img/icon-linked-in.svg" class="social-media-icon">
+                        </a>
 
-                    <div class="icon-wrapper">
+                    <div class="icon-wrapper notAvailable">
                         <img src="public/img/icon-behance.svg" class="social-media-icon">
                     </div>
 
                     <div class="icon-wrapper">
-                        <img src="public/img/icon-git.svg" class="social-media-icon">
+                        <a href="https://github.com/davidchavezTech/" target="_blank">
+                            <img src="public/img/icon-git.svg" class="social-media-icon">
+                        </a>
                     </div>
 
                     <div class="social-media-line" style="margin-top:10px;"></div>
@@ -104,12 +111,14 @@
                         <img src="public/img/icon-linked-in.svg" class="social-media-icon">
                     </a>
 
-                    <div class="icon-wrapper">
+                    <div class="icon-wrapper notAvailable">
                         <img src="public/img/icon-behance.svg" class="social-media-icon">
                     </div>
 
                     <div class="icon-wrapper">
-                        <img src="public/img/icon-git.svg" class="social-media-icon">
+                        <a href="https://github.com/davidchavezTech/" target="_blank">
+                            <img src="public/img/icon-git.svg" class="social-media-icon">
+                        </a>
                     </div>
                     
                     <div class="social-media-line" style="margin-top:10px;"></div>
@@ -120,60 +129,83 @@
             <p id="my-work">My work</p>
             <div id="portfolio-cont">
                 <div id="port-imgs-wrapper">
-                    <div id="img-1-wrapper">
+                    <div id="img-1-wrapper" class="portfolioImageWrapper-identifier">
                         <div id="port-img-1"></div>
                         <div class="portfolio-buttons-wrapper">
-                            <a class="horizontal-v-s" href="#">Visit site</a>
-                            <div class="horizontal-v">Behance</div>
-                            <div class="horizontal-v">GitHub</div>
+                            <a class="horizontal-v-s video-identifier " id ="video-one" custom-source="public/videos/paltas.mp4">Video</a>
+                            <a class="horizontal-v " href="http://laacopiadora.com/" target="_blank">Visit site</a>
+                            <a class="horizontal-v " href="https://github.com/davidchavezTech/acopiadora" target="_blank">GitHub</a>
+                            <div class="horizontal-v notAvailable">Behance</div>
                         </div>
                     </div>
-                    <div id="img-2-wrapper">
+                    <div id="img-2-wrapper" class="portfolioImageWrapper-identifier">
                         <div id="port-img-2"></div>
                         <div class="portfolio-buttons-wrapper">
-                            <div class="vertical-v">Behance</div>
-                            <div class="vertical-v">GitHub</div>
+                            <a class="vertical-v-s video-identifier" style="margin-bottom:0;" id ="video-two" custom-source="public/videos/food_app.mp4">Video</a>
+                            <a class="vertical-v" href="https://github.com/davidchavezTech/food_app" target="_blank">GitHub</a>
+                            <div class="vertical-v notAvailable">Behance</div>
                         </div>
                     </div>
                     <div id="img-3-wrapper">
                         <div id="port-img-3"></div>
                         <div class="portfolio-buttons-wrapper">
-                            <div class="vertical-v">GitHub</div>
-                            <div class="vertical-v">Behance</div>
+                            <a class="vertical-v-s video-identifier" style="margin-bottom:0;" id ="video-three" custom-source="public/videos/restaurante_mi_carmencita.mp4">Video</a>
+                            <a class="vertical-v" href="https://github.com/davidchavezTech/restaurante-mi_dulce_carmencita" target="_blank">GitHub</a>
+                            <div class="vertical-v notAvailable">Behance</div>
                         </div>
                     </div>
-                    <div id="img-4-wrapper">
+                    <div id="img-4-wrapper" class="portfolioImageWrapper-identifier">
                         <div id="port-img-4"></div>
                         <div class="portfolio-buttons-wrapper">
-                            <div class="vertical-v" style="width:140px;">GitHub</div>
-                            <div class="vertical-v" style="width:140px;">Behance</div>
+                            <a class="vertical-v-s video-identifier" style="margin-bottom:0;" id ="video-three" custom-source="public/videos/restaurante_mi_carmencita.mp4">Video</a>
+                            <a class="vertical-v" href="https://github.com/davidchavezTech/restaurante-mi_dulce_carmencita" target="_blank">GitHub</a>
+                            <div class="vertical-v notAvailable">Behance</div>
                         </div>
                     </div>
-                    <div id="img-5-wrapper">
+                    <div id="img-5-wrapper" class="portfolioImageWrapper-identifier">
                         <div id="port-img-5"></div>
                         <div class="portfolio-buttons-wrapper">
-                            <a class="horizontal-v-s" href="#">GitHub</a>
-                            <div class="horizontal-v">Behance</div>
+                            <a class="horizontal-v-s video-identifier" id ="video-four"  custom-source="public/videos/sg_courier.mp4" >Video</a>
+                            <a class="horizontal-v " href="https://www.sgcouriercargo.com.pe/" target="_blank">Visit site</a>
+                            <a class="horizontal-v" href="https://github.com/davidchavezTech/SG_courier" target="_blank">GitHub</a>
+                            <div class="horizontal-v notAvailable">Behance</div>
                         </div>
                     </div>
                     <div id="img-6-wrapper">
                         <div id="port-img-6"></div>
                         <div class="portfolio-buttons-wrapper">
-                            <div class="vertical-v" style="width:180px;">GitHub</div>
-                            <div class="vertical-v" style="width:180px;">Behance</div>
+                            <a class="vertical-v video-identifier" style="width:180px;margin-bottom:0;" id ="video-three" custom-source="public/videos/restaurante_mi_carmencita.mp4">Video</a>
+                            <a class="vertical-v" style="width:180px;" href="https://github.com/davidchavezTech/restaurante-mi_dulce_carmencita" target="_blank">GitHub</a>
+                            <div class="vertical-v notAvailable" style="width:180px;">Behance</div>
                         </div>
                     </div>
                     <div id="img-7-wrapper">
                         <div id="port-img-7"></div>
                             
                         <div class="portfolio-buttons-wrapper">
-                            <div class="vertical-v" style="width:180px;">GitHub</div>
-                            <div class="vertical-v" style="width:180px;">Behance</div>
+                            <a class="vertical-v-s video-identifier" style="width:180px;margin-bottom:0;" id ="video-two" custom-source="public/videos/food_app.mp4">Video</a>
+                            <a class="vertical-v" style="width:180px;" href="https://github.com/davidchavezTech/food_app" target="_blank">GitHub</a>
+                            <div class="vertical-v notAvailable" style="width:180px;">Behance</div>
                         </div>
                     </div>
                     
                 </div>
             </div>
+
+            <div id="loader-wrapper-for-video" class="loader-wrapper">
+                <div id="video-container">
+                    <video width="800px" height="450px" controls>
+                        <source src="" type="video/mp4" id="video_player">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div id="loader-inner-wrapper-for-video">
+                        <div id="loader-bg-for-video">
+                            <div id="loader-bar-for-video"></div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
         </page-2>
 
         <page-3 id="page-three">
@@ -187,12 +219,14 @@
                     <img src="public/img/icon-linked-in.svg" class="social-media-icon">
                 </a>
 
-                <div class="icon-wrapper">
+                <div class="icon-wrapper notAvailable">
                     <img src="public/img/icon-behance.svg" class="social-media-icon">
                 </div>
 
                 <div class="icon-wrapper">
-                    <img src="public/img/icon-git.svg" class="social-media-icon">
+                    <a href="https://github.com/davidchavezTech/" target="_blank">
+                        <img src="public/img/icon-git.svg" class="social-media-icon">
+                    </a>
                 </div>
                 
                 <div class="social-media-line" style="margin-top:10px;"></div>
@@ -438,7 +472,7 @@
                 
             </div>
             
-            <div id="loader-wrapper">
+            <div id="loader-wrapper" class="loader-wrapper">
                 <div id="art-img-container">
                     <img id="img-loader" src="">
                     <div id="loader-inner-wrapper">
@@ -450,7 +484,8 @@
             </div>
 
         </page-3>
-    </div>    
+    </div>
+    <script src="public/js/animations/error_message_animation.js"></script>
     <script src="public/js/animations/_loadToggleClassStagger.js"></script>
     <script src="public/js/animations/_load_show_translateAndOpacity.js"></script>
     <script src="public/js/animations/_loadXanimation.js"></script>

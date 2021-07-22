@@ -54,7 +54,7 @@ body {
 // ----------------loading screen----------------------
 // ----------------loading screen----------------------
 #blocker{
-    // z-index: 1000;
+    z-index: 1000;
     overflow: hidden;
     position: absolute;
     width: 100vw;
@@ -210,7 +210,7 @@ page-3{
     background-image: url("../img/about_me-mobile.jpg");
     @include page-default();
     background-color: #fe970e;
-    background-size: 100%;
+    // background-size: 100%;
     background-position: left bottom;
     background-repeat: no-repeat;
     z-index: 2;
@@ -497,29 +497,30 @@ a{
 // page 1 content
 
 .logo-page-1{
-    width: 311px;
+    pointer-events: none;
+    width: 86vw;
     margin-left: 7vw;
-    transform: translateY(32vh);
+    transform: translateY(23vh);
 }
 .svg-text-portfolio{
     position: absolute;
-    width: 200px;
+    width: 55vw;
     left: 26vw;
-    bottom: 35vh;
+    bottom: 46vh;
 }
 
 .my-name-title{
     color: var(--granate);
     display: inline-block;
     position: absolute;
-    bottom: 10vh;
-    left: 20vh;
+    bottom: 27vh;
+    left: 18vh;
 }
 .first-name-title{
-    font-size: 69px;
+    font-size: 17vw;
 }
 .last-name-title{
-    font-size: 55px;
+    font-size: 13.5vw;
     line-height: 14px;
 }
 
@@ -586,8 +587,8 @@ a{
     }
     #port-imgs-wrapper{
         position: relative;
-        width: 226px;
-        height: 550px;
+        width: 63vw;
+        height: 153vw;
     }
     #img-1-wrapper{
         width: 100%;
@@ -601,67 +602,65 @@ a{
         opacity: .2;
     }
     .h-v2-wrapper{
+        pointer-events: none;
         @include buttons-wrapper();
         top:28%;
         left:50%;
         transform: translateX(-150px);
     }
     .horizontal-v{
+        pointer-events: none;
         @include overlay-buttons();
-        width: 300px;
-        height: 50px;
-        padding-top:17px;
-        margin-left:auto;
-        margin-right:auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        width: 67%;
     }
     .horizontal-v-s{
+        pointer-events: none;
         @include overlay-buttons();
         display: inline-block;
         background-color: rgba(255,112,11, 1);
-        width: 300px;
-        height: 50px;
-        padding-top:17px;
+        width: 67%;
+        font-size: 16px;
     }
     .v-v-wrapper{
+        pointer-events: none;
         @include buttons-wrapper();
         top:28%;
     }
     .v-v2-wrapper{
+        pointer-events: none;
         @include buttons-wrapper();
         top:28%;
     }
     .h-v-wrapper{
+        pointer-events: none;
         @include buttons-wrapper();
         top:40%;
         width: 100%;
     }
     .vertical-v{
-        font-size: 25px;
+        pointer-events: none;
+        font-size: 16px;
         color:white;
-        width: 90%;
-        height: 50px;
-        padding-top:17px;
-        text-align: center;
+        width: 80%;
         border: 2px solid white;
         cursor: pointer;
-        margin-left:auto;
-        margin-right:auto;
         &:hover{
             background-color: rgba(255,255,255, 1);
             color: rgb(255, 112, 11);
         }
     }
     .vertical-v-s{
+        pointer-events: none;
         display: inline-block;
         background-color: rgba(255,112,11, 1);
-        font-size: 25px;
+        font-size: 16px;
         color:white;
-        width: 205px;
-        height: 50px;
-        padding-top:17px;
-        text-align: center;
+        width: 80%;
         border: 2px solid white;
-        margin-bottom: 35px;
         transition: all .3s ease;
         &:hover{
             background-color: rgba(255,255,255, 1);
@@ -727,11 +726,12 @@ a{
 #me-text{
     width: 179px;
     position: absolute;
-    top: 126px;
+    top: 16vh;
     left: 16px;
 }
 
 #bio-wrapper{
+    display: none;
     transition: all .3s ease-in;
     position: absolute;
     top: 84px;
@@ -739,8 +739,8 @@ a{
     opacity: 0;
     pointer-events: none;
 }
-#art-wrapper
-{
+#art-wrapper{
+    display: none;
     opacity: 0;
     pointer-events: none;
     // transform: translate(0, 0);
@@ -750,6 +750,7 @@ a{
     left: 32px;
 }
 #contact-wrapper{
+    display: none;
     opacity: 0;
     pointer-events: none;
     transition: all .3s ease-in;
@@ -812,6 +813,7 @@ a{
     transition: all .3s ease-out;
 }
 #about-cards-wrapper{
+    display: none;
     opacity: 0;
     pointer-events: none;
     position: absolute;
@@ -850,6 +852,7 @@ a{
     line-height: 30px;
 }
 #art-previews-wrapper{
+    display: none;
     pointer-events: none;
     position: absolute;
     top: 186px;
@@ -900,7 +903,7 @@ a{
 }
 .art-column-3{
     width: 285px;
-}#loader-wrapper{
+}.loader-wrapper{
     margin-top: 20px;
     pointer-events: none;
     display: flex;
@@ -920,15 +923,20 @@ a{
     overflow: hidden;
     background-color: black;
     position: relative;
+}#video-container{
+    height:450px;
+    overflow: hidden;
+    background-color: black;
+    position: relative;
 }#img-loader{
     height: inherit;
-}#loader-inner-wrapper{
+}#loader-inner-wrapper, #loader-inner-wrapper-for-video{
     position: absolute;
     top:0;
     left:0;
     height: 100%;
     width: 100%;
-}#loader-bg{
+}#loader-bg, #loader-bg-for-video{
     position: relative;
     top:0;
     left:0;
@@ -936,7 +944,7 @@ a{
     width: 100%;
     background-color: #fda713;
     overflow: hidden;
-}#loader-bar{
+}#loader-bar, #loader-bar-for-video{
     width: 250px;
     right: 0px;
     background-color: rgb(255,85,4);
@@ -1103,7 +1111,7 @@ a{
     margin: 0;
     font-size: 130px;
     left: -21px;
-    top: 17px;
+    top: 2vh;
 }.mobile-button{
     padding: 5px;
     margin: 2px;
@@ -1197,6 +1205,7 @@ a{
     position: absolute;
     bottom: 26px;
     // opacity: 1;
+    display: none;
     pointer-events: none;
 }#close-gallery-button--mobile{
     width: 337px;
@@ -1210,4 +1219,50 @@ a{
     align-items: center;
     justify-content: center;
     margin-bottom:15px;
+}.hover-portfolio-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0;
+    font-size: 16px;
+    width: 67%;
+}
+// -------------SHOW ERROR MSG------------
+#error-message-wrapper-fix{
+    height: 0;
+    position: sticky;
+    top: 85vh;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+}
+#error-message{
+    display: flex;
+    justify-content: flex-end;
+}#error-text{
+    height: 20px;
+    transition: all .4s ease;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 16px;
+    color: #d4d4d4;
+    background-color: #f73509;
+    opacity: 0;
+    transform: rotate(-1deg) translateY(22px);
+}
+.show-error-msg{
+    animation-name: show-error-msg--animation;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+}
+@keyframes show-error-msg--animation {
+
+    0%{
+        opacity: 0;
+        transform: rotate(-1deg) translateY(22px);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(0deg) translateY(0px);
+    }
 }
