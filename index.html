@@ -350,10 +350,13 @@
             </div>
 
             <div id="contact-form-wrapper">
-                <p id="email"><span id="hello">hello</span>@davidchavez.tech<img id="copy-icon" src="public/img/icon-copy.svg"><span id='copy'>Copy!</span></p>
-                <input type="text" id="text-input-name" placeholder="Name">
-                <input type="text" id="text-input-email" placeholder="e-mail">
-                <textarea id="message" placeholder="Message"></textarea>
+                <form action="https://formspree.io/f/mdoylvyr" method="POST">
+                    <p id="email"><span id="hello">hello</span>@davidchavez.tech<img id="copy-icon" src="public/img/icon-copy.svg"><span id='copy'>Copy!</span></p>
+                    <input type="text" id="text-input-name" placeholder="Name">
+                    <input type="email" name="_replyto" id="text-input-email" placeholder="e-mail">
+                    <textarea name="message" id="message" placeholder="Message"></textarea>
+                    <button class="send_message_button" type="submit">Send</button>
+                </form>
             </div>
             
             <!-- <div id="loader-wrapper">
@@ -399,18 +402,19 @@
                     </div>
                         
                 </div>
-
-                <div id="contact_me_wraper--mobile">
-                    <div class="line-wrapper">
-                        <div class="small-orange-line"></div>
+                <form action="https://formspree.io/f/mdoylvyr" method="POST">
+                    <div id="contact_me_wraper--mobile">
+                        <div class="line-wrapper">
+                            <div class="small-orange-line"></div>
+                        </div>
+                        <p id="email-mobile"><span class="granate">hello</span>@davidchavez.tech</p>
+                        <input type="text" id="text-input-name--mobile" placeholder="Name">
+                        <input type="email" name="_replyto" id="text-input-email--mobile" placeholder="e-mail">
+                        <textarea name="message" id="message--mobile" placeholder="Message"></textarea>
+                        <button id="send-button-mobile" type="submit">Send</button>
+                        <div id="cancel-button-mobile">Cancel</div>
                     </div>
-                    <p id="email-mobile"><span class="granate">hello</span>@davidchavez.tech</p>
-                    <input type="text" id="text-input-name--mobile" placeholder="Name">
-                    <input type="text" id="text-input-email--mobile" placeholder="e-mail">
-                    <textarea id="message--mobile" placeholder="Message"></textarea>
-                    <div id="send-button-mobile">Send</div>
-                    <div id="cancel-button-mobile">Cancel</div>
-                </div>
+                </form>
 
                 <div id="art_wrapper--mobile">
                     <div id="close-gallery-button--mobile">

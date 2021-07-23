@@ -1503,7 +1503,7 @@ a {
   transition: all .2s ease-out;
 }
 
-input[type=text] {
+input[type=text], input[type=email] {
   font-family: 'Century Gothic Regular';
   border: none;
   color: white;
@@ -1514,7 +1514,7 @@ input[type=text] {
   font-size: 16px;
 }
 
-input[type=text]:focus {
+input[type=text]:focus, input[type=email]:focus {
   outline: none;
 }
 
@@ -1592,5 +1592,89 @@ textarea::placeholder {
 
 #about-text, #about-me-buttons-wrapper, #page-3-blurrer {
   display: none;
+}
+
+.send_message_button {
+  border: none;
+  font-size: 20px;
+  border-radius: 0;
+  width: 200px;
+  margin-left: 0;
+  margin-top: 20px;
+  background-color: #f74b09;
+  height: 50px;
+  color: white;
+}
+
+#error-message-wrapper-fix {
+  height: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 92vh;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#error-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#error-text {
+  height: 20px;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+  display: inline-block;
+  margin-right: 20px;
+  padding: 10px 16px;
+  color: #d4d4d4;
+  background-color: #f73509;
+  opacity: 0;
+  -webkit-transform: rotate(-1deg) translateY(22px);
+          transform: rotate(-1deg) translateY(22px);
+}
+
+.show-error-msg {
+  -webkit-animation-name: show-error-msg--animation;
+          animation-name: show-error-msg--animation;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes show-error-msg--animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(-1deg) translateY(22px);
+            transform: rotate(-1deg) translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotate(0deg) translateY(0px);
+            transform: rotate(0deg) translateY(0px);
+  }
+}
+
+@keyframes show-error-msg--animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(-1deg) translateY(22px);
+            transform: rotate(-1deg) translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotate(0deg) translateY(0px);
+            transform: rotate(0deg) translateY(0px);
+  }
 }
 /*# sourceMappingURL=smaller-monitor.css.map */

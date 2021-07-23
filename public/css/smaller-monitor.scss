@@ -1008,7 +1008,7 @@ a{
     cursor: pointer;
     color: #d0d0d0;
     transition: all .2s ease-out;
-}input[type=text] {
+}input[type=text], input[type=email] {
     font-family: 'Century Gothic Regular';
     border: none;
     color: white;
@@ -1045,4 +1045,54 @@ a{
     padding: 10px 8px;
 }#about-text, #about-me-buttons-wrapper, #page-3-blurrer{
     display: none;
+}
+.send_message_button{
+    border: none;
+    font-size: 20px;
+    border-radius: 0;
+    width: 200px;
+    margin-left: 0;
+    margin-top: 20px;
+    background-color: #f74b09;
+    height: 50px;
+    color: white;
+}
+// -------------SHOW ERROR MSG------------
+#error-message-wrapper-fix{
+    height: 0;
+    position: sticky;
+    top: 92vh;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+}
+#error-message{
+    display: flex;
+    justify-content: flex-end;
+}#error-text{
+    height: 20px;
+    transition: all .4s ease;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 16px;
+    color: #d4d4d4;
+    background-color: #f73509;
+    opacity: 0;
+    transform: rotate(-1deg) translateY(22px);
+}
+.show-error-msg{
+    animation-name: show-error-msg--animation;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+}
+@keyframes show-error-msg--animation {
+
+    0%{
+        opacity: 0;
+        transform: rotate(-1deg) translateY(22px);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(0deg) translateY(0px);
+    }
 }

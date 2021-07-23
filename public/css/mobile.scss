@@ -1012,7 +1012,7 @@ a{
     cursor: pointer;
     color: #d0d0d0;
     transition: all .2s ease-out;
-}input[type=text] {
+}input[type=text], input[type=email] {
     font-family: 'Century Gothic Regular';
     border: none;
     color: white;
@@ -1082,6 +1082,7 @@ a{
     color: var(--granate);
 
 }#send-button-mobile{
+    border:none;
     margin-top: 20px;
     width: 90vw;
     display: flex;
